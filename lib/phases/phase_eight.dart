@@ -315,7 +315,7 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 150,
-                          left: 80,
+                          left: 82,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black45, // Background color
