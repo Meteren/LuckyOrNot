@@ -343,7 +343,7 @@ class _PhaseEightState extends State<PhaseEight> {
 
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black45,

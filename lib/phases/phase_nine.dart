@@ -370,7 +370,7 @@ class _PhaseNineState extends State<PhaseNine> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.pinkAccent,

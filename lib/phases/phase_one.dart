@@ -113,7 +113,7 @@ class _PhaseOneState extends State<PhaseOne> {
                         ),
                         Positioned(
                           bottom: 250,
-                          left: 80,
+                          left: 81,
                           child: ElevatedButton(
                             onPressed: 10 <= random && random < 20 && active == 0 ? () async{
                               setState((){
@@ -137,7 +137,7 @@ class _PhaseOneState extends State<PhaseOne> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,

@@ -258,7 +258,7 @@ class _PhaseFiveState extends State<PhaseFive> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red,

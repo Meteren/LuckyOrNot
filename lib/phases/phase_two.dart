@@ -121,7 +121,7 @@ class _PhaseTwoState extends State<PhaseTwo> {
                         ),
                         Positioned(
                           bottom: 250,
-                          left: 80,
+                          left: 81,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.yellow, // Background color
@@ -148,7 +148,7 @@ class _PhaseTwoState extends State<PhaseTwo> {
                         ),
                         Positioned(
                           bottom: 200,
-                          left: 80,
+                          left: 81,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.yellow, // Background color
@@ -175,7 +175,7 @@ class _PhaseTwoState extends State<PhaseTwo> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.yellow,

@@ -202,7 +202,7 @@ class _PhaseThreeState extends State<PhaseThree> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 70,
+                          right: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple,
