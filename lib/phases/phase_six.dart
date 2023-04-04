@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
-import '../questions/question._five.dart';
+import '../questions/question_five.dart';
 import '../questions/question_fifty.dart';
 import '../questions/question_forty.dart';
 import '../questions/question_sixty.dart';

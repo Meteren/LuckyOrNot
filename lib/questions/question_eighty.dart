@@ -145,7 +145,7 @@ class _QuestionEightyState extends State<QuestionEighty> {
                       ),
                       Positioned(
                         top: 280,
-                        right: 120,
+                        right: 119,
                         child: ElevatedButton(
                           onPressed: active == 0 ? (){
                             setState(() {
