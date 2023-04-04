@@ -1,20 +1,20 @@
-
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
 
 
-class QuestionThirty extends StatefulWidget {
-  const QuestionThirty({
+
+class QuestionFourty extends StatefulWidget {
+  const QuestionFourty({
     super.key, required this.questions,
   });
 
   final QuizBrain questions;
 
   @override
-  State<QuestionThirty> createState() => _QuestionThirtyState();
+  State<QuestionFourty> createState() => _QuestionFourtyState();
 }
 
-class _QuestionThirtyState extends State<QuestionThirty> {
+class _QuestionFourtyState extends State<QuestionFourty> {
   late int active;
   late int pointTaken;
 
@@ -53,7 +53,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
           elevation: 3.5,
           backgroundColor: Colors.green,
           automaticallyImplyLeading: false,
-          title: const Center(child:  Text('Question')),
+          title: const Center(child: Text('Question')),
         ),
         body: Center(
           child: Column(
@@ -90,7 +90,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
                               active++;
                             });
                             if(widget.questions.getCorrectAnswer(widget.questions) == true) {
-                              pointTaken +=30;
+                              pointTaken +=40;
                               showDialog<String>(
                                 barrierDismissible: false,
                                 context: context,
@@ -99,7 +99,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 30 point(s)'),
+                                              'You got 40 point(s)'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -151,7 +151,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
                               active++;
                             });
                             if(widget.questions.getCorrectAnswer(widget.questions) == false) {
-                              pointTaken +=30;
+                              pointTaken +=40;
                               showDialog<String>(
                                 barrierDismissible: false,
                                 context: context,
@@ -160,7 +160,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 30 point(s).'),
+                                              'You got 40 point(s).'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -205,7 +205,7 @@ class _QuestionThirtyState extends State<QuestionThirty> {
                       ),
                       Positioned(
                         bottom: 90,
-                        right: 85,
+                        right: 93,
                         child: ElevatedButton(
                           onPressed: active == 1 ? (){
                             Navigator.of(context).pop<int>(pointTaken);

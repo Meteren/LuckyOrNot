@@ -2,27 +2,23 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
-import 'question._five.dart';
-import 'question_fifty.dart';
-import 'question_forty.dart';
-import 'question_seventy.dart';
-import 'question_sixty.dart';
-import 'question_ten.dart';
-import 'question_thirty.dart';
-import 'question_twenty.dart';
+import '../questions/question._five.dart';
+import '../questions/question_ten.dart';
+import '../questions/question_thirty.dart';
+import '../questions/question_twenty.dart';
 
-class PhaseSeven extends StatefulWidget {
-  const PhaseSeven({
+class PhaseThree extends StatefulWidget {
+  const PhaseThree({
     super.key, required this.questions,
   });
 
   final QuizBrain questions;
 
   @override
-  State<PhaseSeven> createState() => _PhaseSevenState();
+  State<PhaseThree> createState() => _PhaseThreeState();
 }
 
-class _PhaseSevenState extends State<PhaseSeven> {
+class _PhaseThreeState extends State<PhaseThree> {
   late int random;
   late bool deactive;
 
@@ -63,9 +59,9 @@ class _PhaseSevenState extends State<PhaseSeven> {
             shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(50)
             ),
-            backgroundColor: Colors.tealAccent,
+            backgroundColor: Colors.purple,
             automaticallyImplyLeading: false,
-            title: const Center(child: Text('Welcome To Phase 7')),
+            title: const Center(child: Text('Welcome To Phase 3')),
           ),
           body: Center(
             child: Column(
@@ -85,7 +81,7 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           left: 90,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
+                              backgroundColor: Colors.purple, // Background color
                             ),
                             onPressed: deactive ? null : () {
                               setState( () {
@@ -97,13 +93,13 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           ),
                         ),
                         Positioned(
-                          bottom: 400,
+                          bottom: 300,
                           left: 85,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
+                              backgroundColor: Colors.purple, // Background color
                             ),
-                            onPressed: 0 <= random && random < 4 && active == 0 ? () async {
+                            onPressed: 0 <= random && random < 8 && active == 0 ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -124,13 +120,13 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           ),
                         ),
                         Positioned(
-                          bottom: 350,
-                          left: 80,
+                          bottom: 250,
+                          left: 0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
+                              backgroundColor: Colors.purple, // Background color
                             ),
-                            onPressed: 4 <= random && random < 7 && active == 0 ? () async{
+                            onPressed: 8 <= random && random < 13 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -151,13 +147,13 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           ),
                         ),
                         Positioned(
-                          bottom: 300,
-                          left: 30,
+                          bottom: 250,
+                          right: 0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
+                              backgroundColor: Colors.purple, // Background color
                             ),
-                            onPressed: 7 <= random && random < 10 && active == 0 ? () async{
+                            onPressed: 13 <= random && random < 17 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -178,13 +174,13 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           ),
                         ),
                         Positioned(
-                          bottom: 300,
-                          right: 30,
+                          bottom: 200,
+                          left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
+                              backgroundColor: Colors.purple, // Background color
                             ),
-                            onPressed: 10 <= random && random < 13 && active == 0 ? () async{
+                            onPressed: 17 <= random && random < 20 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -205,119 +201,11 @@ class _PhaseSevenState extends State<PhaseSeven> {
                           ),
                         ),
                         Positioned(
-                          bottom: 250,
-                          left: 80,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
-                            ),
-                            onPressed: 13 <= random && random < 16 && active == 0 ? () async{
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return QuestionFourty(questions: widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('40 points'),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 200,
-                          left: 30,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
-                            ),
-                            onPressed: 16 <= random && random < 18 && active == 0  ? () async{
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return QuestionFifty(questions: widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('50 points'),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 200,
-                          right: 30,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
-                            ),
-                            onPressed: random == 18 && active == 0  ? () async {
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return  QuestionSixty(questions:widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('60 points'),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 150,
-                          left: 80,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent, // Background color
-                            ),
-                            onPressed: random == 19 && active == 0  ? () async {
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return  QuestionSeventy(questions:widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('70 points'),
-                          ),
-                        ),
-                        Positioned(
                           bottom: 50,
                           right: 70,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.tealAccent,
+                              backgroundColor: Colors.purple,
                             ),
                             onPressed: finish ? () {
                               Navigator.of(context).pop<int>(pointTaken);

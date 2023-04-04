@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
-import 'question._five.dart';
-import 'question_forty.dart';
-import 'question_ten.dart';
-import 'question_thirty.dart';
-import 'question_twenty.dart';
+import '../questions/question._five.dart';
+import '../questions/question_forty.dart';
+import '../questions/question_ten.dart';
+import '../questions/question_thirty.dart';
+import '../questions/question_twenty.dart';
 
 class PhaseFour extends StatefulWidget {
   const PhaseFour({

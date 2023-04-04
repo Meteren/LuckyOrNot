@@ -2,30 +2,29 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
-import 'question._five.dart';
-import 'question_eighty.dart';
-import 'question_fifty.dart';
-import 'question_forty.dart';
-import 'question_ninety.dart';
-import 'question_seventy.dart';
-import 'question_sixty.dart';
-import 'question_ten.dart';
-import 'question_thirty.dart';
-import 'question_twenty.dart';
-import 'questions_one_hundred.dart';
+import '../questions/question._five.dart';
+import '../questions/question_eighty.dart';
+import '../questions/question_fifty.dart';
+import '../questions/question_forty.dart';
+import '../questions/question_ninety.dart';
+import '../questions/question_seventy.dart';
+import '../questions/question_sixty.dart';
+import '../questions/question_ten.dart';
+import '../questions/question_thirty.dart';
+import '../questions/question_twenty.dart';
 
-class PhaseTen extends StatefulWidget {
-  const PhaseTen({
+class PhaseNine extends StatefulWidget {
+  const PhaseNine({
     super.key, required this.questions,
   });
 
   final QuizBrain questions;
 
   @override
-  State<PhaseTen> createState() => _PhaseTenState();
+  State<PhaseNine> createState() => _PhaseNineState();
 }
 
-class _PhaseTenState extends State<PhaseTen> {
+class _PhaseNineState extends State<PhaseNine> {
   late int random;
   late bool deactive;
 
@@ -66,9 +65,9 @@ class _PhaseTenState extends State<PhaseTen> {
             shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(50)
             ),
-            backgroundColor: Colors.cyanAccent,
+            backgroundColor: Colors.pinkAccent,
             automaticallyImplyLeading: false,
-            title: const Center(child: Text('Welcome To Phase 10')),
+            title: const Center(child: Text('Welcome To Phase 9')),
           ),
           body: Center(
             child: Column(
@@ -85,10 +84,10 @@ class _PhaseTenState extends State<PhaseTen> {
                         ),
                         Positioned(
                           top: 70,
-                          left: 90,
+                          left: 92,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
                             onPressed: deactive ? null : () {
                               setState( () {
@@ -101,10 +100,10 @@ class _PhaseTenState extends State<PhaseTen> {
                         ),
                         Positioned(
                           bottom: 420,
-                          left: 85,
+                          left: 88,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
                             onPressed: 0 <= random && random < 3 && active == 0 ? () async {
                               setState(() {
@@ -131,9 +130,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           left: 0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 3 <= random && random < 5 && active == 0 ? () async{
+                            onPressed: 3 <= random && random < 6 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -158,9 +157,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           right: 0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 5 <= random && random < 7  && active == 0 ? () async{
+                            onPressed: 6 <= random && random < 9 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -185,9 +184,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           right: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 7 <= random && random < 9 && active == 0 ? () async{
+                            onPressed: 9 <= random && random < 12 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -212,9 +211,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           left: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 9 <= random && random < 11 && active == 0 ? () async{
+                            onPressed: 12 <= random && random < 14 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -239,9 +238,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           left: 85,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 11 <= random && random < 13 && active == 0  ? () async{
+                            onPressed: 14 <= random && random < 16 && active == 0  ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -266,9 +265,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           left: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 13 <= random && random < 15 && active == 0  ? () async {
+                            onPressed: random == 16 && active == 0  ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -280,7 +279,7 @@ class _PhaseTenState extends State<PhaseTen> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionSixty(questions:widget.questions);
+                                      return  QuestionSixty(questions:widget.questions);
                                     }
                                 ),
                               );
@@ -293,9 +292,9 @@ class _PhaseTenState extends State<PhaseTen> {
                           right: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
-                            onPressed: 15 <= random && random < 17 && active == 0  ? () async {
+                            onPressed: random == 17 && active == 0  ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -307,7 +306,7 @@ class _PhaseTenState extends State<PhaseTen> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionSeventy(questions:widget.questions);
+                                      return  QuestionSeventy(questions:widget.questions);
                                     }
                                 ),
                               );
@@ -317,37 +316,10 @@ class _PhaseTenState extends State<PhaseTen> {
                         ),
                         Positioned(
                           bottom: 170,
-                          left: 0,
+                          left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
-                            ),
-                            onPressed: random == 17 && active == 0 ? () async {
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return QuestionEighty(questions:widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('80 points'),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 170,
-                          right: 0,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
                             onPressed: random == 18 && active == 0 ? () async {
                               setState(() {
@@ -361,12 +333,12 @@ class _PhaseTenState extends State<PhaseTen> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionNinety(questions:widget.questions);
+                                      return  QuestionEighty(questions:widget.questions);
                                     }
                                 ),
                               );
                             }: null,
-                            child: const Text('90 points'),
+                            child: const Text('80 points'),
                           ),
                         ),
                         Positioned(
@@ -374,7 +346,7 @@ class _PhaseTenState extends State<PhaseTen> {
                           left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent, // Background color
+                              backgroundColor: Colors.pinkAccent, // Background color
                             ),
                             onPressed: random == 19 && active == 0 ? () async {
                               setState(() {
@@ -388,12 +360,12 @@ class _PhaseTenState extends State<PhaseTen> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionOneHundred(questions:widget.questions);
+                                      return  QuestionNinety(questions:widget.questions);
                                     }
                                 ),
                               );
                             }: null,
-                            child: const Text('100 points'),
+                            child: const Text('90 points'),
                           ),
                         ),
                         Positioned(
@@ -401,7 +373,7 @@ class _PhaseTenState extends State<PhaseTen> {
                           right: 70,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.cyanAccent,
+                              backgroundColor: Colors.pinkAccent,
                             ),
                             onPressed: finish ? () {
                               Navigator.of(context).pop<int>(pointTaken);

@@ -2,16 +2,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
 import 'how_to_play.dart';
-import 'phase_eight.dart';
-import 'phase_five.dart';
-import 'phase_four.dart';
-import 'phase_nine.dart';
-import 'phase_one.dart';
-import 'phase_seven.dart';
-import 'phase_six.dart';
-import 'phase_ten.dart';
-import 'phase_three.dart';
-import 'phase_two.dart';
+import 'phases/phase_eight.dart';
+import 'phases/phase_five.dart';
+import 'phases/phase_four.dart';
+import 'phases/phase_nine.dart';
+import 'phases/phase_one.dart';
+import 'phases/phase_seven.dart';
+import 'phases/phase_six.dart';
+import 'phases/phase_ten.dart';
+import 'phases/phase_three.dart';
+import 'phases/phase_two.dart';
 import 'restart_app.dart';
 
 void main() {

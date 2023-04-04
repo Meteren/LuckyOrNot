@@ -2,28 +2,27 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:quiz_bank/quiz_bank.dart';
-import 'question._five.dart';
-import 'question_eighty.dart';
-import 'question_fifty.dart';
-import 'question_forty.dart';
-import 'question_seventy.dart';
-import 'question_sixty.dart';
-import 'question_ten.dart';
-import 'question_thirty.dart';
-import 'question_twenty.dart';
+import '../questions/question._five.dart';
+import '../questions/question_fifty.dart';
+import '../questions/question_forty.dart';
+import '../questions/question_seventy.dart';
+import '../questions/question_sixty.dart';
+import '../questions/question_ten.dart';
+import '../questions/question_thirty.dart';
+import '../questions/question_twenty.dart';
 
-class PhaseEight extends StatefulWidget {
-  const PhaseEight({
+class PhaseSeven extends StatefulWidget {
+  const PhaseSeven({
     super.key, required this.questions,
   });
 
   final QuizBrain questions;
 
   @override
-  State<PhaseEight> createState() => _PhaseEightState();
+  State<PhaseSeven> createState() => _PhaseSevenState();
 }
 
-class _PhaseEightState extends State<PhaseEight> {
+class _PhaseSevenState extends State<PhaseSeven> {
   late int random;
   late bool deactive;
 
@@ -64,9 +63,9 @@ class _PhaseEightState extends State<PhaseEight> {
             shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(50)
             ),
-            backgroundColor: Colors.black45,
+            backgroundColor: Colors.tealAccent,
             automaticallyImplyLeading: false,
-            title: const Center(child: Text('Welcome To Phase 8')),
+            title: const Center(child: Text('Welcome To Phase 7')),
           ),
           body: Center(
             child: Column(
@@ -86,7 +85,7 @@ class _PhaseEightState extends State<PhaseEight> {
                           left: 90,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
                             onPressed: deactive ? null : () {
                               setState( () {
@@ -99,12 +98,12 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 400,
-                          left: 88,
+                          left: 85,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 0 <= random && random < 3 && active == 0 ? () async {
+                            onPressed: 0 <= random && random < 4 && active == 0 ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -126,12 +125,12 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 350,
-                          left: 30,
+                          left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 3 <= random && random < 6 && active == 0 ? () async{
+                            onPressed: 4 <= random && random < 7 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -152,13 +151,13 @@ class _PhaseEightState extends State<PhaseEight> {
                           ),
                         ),
                         Positioned(
-                          bottom: 350,
-                          right: 30,
+                          bottom: 300,
+                          left: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 6 <= random && random < 9 && active == 0 ? () async{
+                            onPressed: 7 <= random && random < 10 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -180,12 +179,12 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 300,
-                          right: 80,
+                          right: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 9 <= random && random < 11 && active == 0 ? () async{
+                            onPressed: 10 <= random && random < 13 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -207,12 +206,12 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 250,
-                          left: 30,
+                          left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 11 <= random && random < 13 && active == 0 ? () async{
+                            onPressed: 13 <= random && random < 16 && active == 0 ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -233,13 +232,13 @@ class _PhaseEightState extends State<PhaseEight> {
                           ),
                         ),
                         Positioned(
-                          bottom: 250,
-                          right: 30,
+                          bottom: 200,
+                          left: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 13 <= random && random < 15 && active == 0  ? () async{
+                            onPressed: 16 <= random && random < 18 && active == 0  ? () async{
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -261,12 +260,12 @@ class _PhaseEightState extends State<PhaseEight> {
                         ),
                         Positioned(
                           bottom: 200,
-                          left: 0 ,
+                          right: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 15 <= random && random < 17 && active == 0  ? () async {
+                            onPressed: random == 18 && active == 0  ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -287,13 +286,13 @@ class _PhaseEightState extends State<PhaseEight> {
                           ),
                         ),
                         Positioned(
-                          bottom: 200,
-                          right: 0,
+                          bottom: 150,
+                          left: 80,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
+                              backgroundColor: Colors.tealAccent, // Background color
                             ),
-                            onPressed: 17 <= random && random < 19 && active == 0  ? () async {
+                            onPressed: random == 19 && active == 0  ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
@@ -314,39 +313,11 @@ class _PhaseEightState extends State<PhaseEight> {
                           ),
                         ),
                         Positioned(
-                          bottom: 150,
-                          left: 80,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45, // Background color
-                            ),
-                            onPressed:  random == 19 && active == 0  ? () async {
-                              setState(() {
-                                active++;
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  setState(() {
-                                    finish = true;
-                                  });
-                                });
-                              });
-                              pointTaken = await Navigator.of(context).push<int>(
-                                MaterialPageRoute(
-                                    builder: (context){
-                                      return  QuestionEighty(questions:widget.questions);
-                                    }
-                                ),
-                              );
-                            }: null,
-                            child: const Text('80 points'),
-                          ),
-                        ),
-
-                        Positioned(
                           bottom: 50,
                           right: 70,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black45,
+                              backgroundColor: Colors.tealAccent,
                             ),
                             onPressed: finish ? () {
                               Navigator.of(context).pop<int>(pointTaken);
