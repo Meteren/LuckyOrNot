@@ -206,7 +206,7 @@ class _QuestionSixtyState extends State<QuestionSixty> {
                       ),
                       Positioned(
                         bottom: 90,
-                        right: 85,
+                        right: 93,
                         child: ElevatedButton(
                           onPressed: active == 1 ? (){
                             Navigator.of(context).pop<int>(pointTaken);
