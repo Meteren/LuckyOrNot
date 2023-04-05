@@ -295,7 +295,7 @@ class _PhaseTenState extends State<PhaseTen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.cyanAccent, // Background color
                             ),
-                            onPressed: 15 <= random && random < 17 && active == 0  ? () async {
+                            onPressed: 15 <= random && random < 17 && active == 0 ? () async {
                               setState(() {
                                 active++;
                                 Future.delayed(const Duration(seconds: 1), () {
