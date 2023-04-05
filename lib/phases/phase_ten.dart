@@ -182,7 +182,7 @@ class _PhaseTenState extends State<PhaseTen> {
                         ),
                         Positioned(
                           bottom: 320,
-                          right: 30,
+                          left: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.cyanAccent, // Background color
@@ -209,7 +209,7 @@ class _PhaseTenState extends State<PhaseTen> {
                         ),
                         Positioned(
                           bottom: 320,
-                          left: 30,
+                          right: 30,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.cyanAccent, // Background color
