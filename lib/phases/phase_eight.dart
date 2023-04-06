@@ -78,12 +78,16 @@ class _PhaseEightState extends State<PhaseEight> {
                       children: [
                         const Positioned(
                           top: 50,
-                          child: Text
-                            ('Press -Decide- button to decide your fate'),
+                          right: 0,
+                          left: 0,
+                          child: FittedBox(
+                            child: Text
+                              ('Press -Decide- button to decide your fate'),
+                          ),
                         ),
                         Positioned(
                           top: 70,
-                          left: 90,
+                          left: 93,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black45, // Background color
@@ -343,7 +347,7 @@ class _PhaseEightState extends State<PhaseEight> {
 
                         Positioned(
                           bottom: 50,
-                          right: 72,
+                          left: 72,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black45,

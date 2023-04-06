@@ -72,8 +72,12 @@ class _PhaseTwoState extends State<PhaseTwo> {
                       children: [
                         const Positioned(
                           top: 50,
-                          child: Text
-                            ('Press -Decide- button to decide your fate'),
+                          left: 0,
+                          right: 0,
+                          child: FittedBox(
+                            child: Text
+                              ('Press -Decide- button to decide your fate'),
+                          ),
                         ),
                         Positioned(
                           top: 70,
@@ -175,7 +179,7 @@ class _PhaseTwoState extends State<PhaseTwo> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 72,
+                          left: 69,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.yellow,

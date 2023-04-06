@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Lucky Or Not',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -194,7 +194,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                 }
                                     : null,
-                                child: const Text('Start Game')),
+                                child: const Text('Start Game',
+                                textAlign: TextAlign.center,)),
                           ),
 
                           Positioned(

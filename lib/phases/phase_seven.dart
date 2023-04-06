@@ -77,6 +77,8 @@ class _PhaseSevenState extends State<PhaseSeven> {
                       children: [
                         const Positioned(
                           top: 50,
+                          right: 0,
+                          left: 0,
                           child: Text
                             ('Press -Decide- button to decide your fate'),
                         ),
@@ -314,7 +316,7 @@ class _PhaseSevenState extends State<PhaseSeven> {
                         ),
                         Positioned(
                           bottom: 50,
-                          right: 72,
+                          left: 69,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.tealAccent,
