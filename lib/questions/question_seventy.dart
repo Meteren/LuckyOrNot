@@ -100,7 +100,7 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 70 points'),
+                                              'You got 70 points.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -122,7 +122,7 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                                       title: const Text('Sorry'),
                                       content: const Text(
                                           'Your answer is not correct.\n'
-                                              'You got 0 point'),
+                                              'You got 0 point.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -183,7 +183,7 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                                       title: const Text('Sorry'),
                                       content: const Text(
                                           'Your answer is not correct.\n'
-                                              'You got 0 point'),
+                                              'You got 0 point.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -215,7 +215,7 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green, // Background color
                           ),
-                          child: const Text('End Question'),
+                          child: const Text('End Question.'),
                         ),
                       ),
                     ],

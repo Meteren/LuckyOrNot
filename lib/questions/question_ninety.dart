@@ -100,7 +100,7 @@ class _QuestionNinetyState extends State<QuestionNinety> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 90 points'),
+                                              'You got 90 points.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -122,7 +122,7 @@ class _QuestionNinetyState extends State<QuestionNinety> {
                                       title: const Text('Sorry'),
                                       content: const Text(
                                           'Your answer is not correct.\n'
-                                              'You got 0 point'),
+                                              'You got 0 point.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -183,7 +183,7 @@ class _QuestionNinetyState extends State<QuestionNinety> {
                                       title: const Text('Sorry'),
                                       content: const Text(
                                           'Your answer is not correct.\n'
-                                              'You got 0 point'),
+                                              'You got 0 point.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
