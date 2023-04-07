@@ -99,7 +99,7 @@ class _QuestionFourtyState extends State<QuestionFourty> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 40 point(s)'),
+                                              'You got 40 points'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -160,7 +160,7 @@ class _QuestionFourtyState extends State<QuestionFourty> {
                                       title: const Text('Congrats!!!'),
                                       content: const Text(
                                           'Your answer is correct.\n'
-                                              'You got 40 point(s).'),
+                                              'You got 40 points.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
