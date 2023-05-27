@@ -73,7 +73,9 @@ class _LoginPageState extends State<LoginPage> {
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('An error has occured while signing in.')));
+          content: Text('An error has occured while signing in.\n'
+              '${e.toString()}'),
+      duration: Duration(seconds: 60),));
     }
   }
   void wrongPassword() {

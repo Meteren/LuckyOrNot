@@ -165,7 +165,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> with Si
                   });
                   Future.delayed(const Duration(seconds: 4), () async{
                     await signOut();
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                   await Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => LoginPage()
                       ));
                     });
