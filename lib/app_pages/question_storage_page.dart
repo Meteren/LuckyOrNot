@@ -149,7 +149,7 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
                           child: TextFormField(
                             decoration: InputDecoration(
                               border: UnderlineInputBorder(),
-                              labelText: 'Enter your question id',
+                              labelText: 'Enter question id',
                             ),
                             validator: (value){
                               if(value == null || value.trim().isNotEmpty != true){
