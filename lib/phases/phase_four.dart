@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:Lucky_or_Not/components/question_point.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_bank/quiz_bank.dart';
-import '../questions/question_five.dart';
-import '../questions/question_forty.dart';
-import '../questions/question_ten.dart';
-import '../questions/question_thirty.dart';
-import '../questions/question_twenty.dart';
+
+import '../models/questions.dart';
+
 
 class PhaseFour extends StatefulWidget {
   const PhaseFour({
@@ -21,7 +19,7 @@ class PhaseFour extends StatefulWidget {
 
 class _PhaseFourState extends State<PhaseFour> {
   late int random;
-  late bool deactive;
+  late bool inactive;
 
   int? pointTaken;
 
@@ -33,7 +31,7 @@ class _PhaseFourState extends State<PhaseFour> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    deactive = false;
+    inactive = false;
     random = -1;
     active = 0;
     finish = false;
@@ -88,10 +86,10 @@ class _PhaseFourState extends State<PhaseFour> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange, // Background color
                             ),
-                            onPressed: deactive ? null : () {
+                            onPressed: inactive ? null : () {
                               setState( () {
                                 random = Random().nextInt(20);
-                                deactive = true;
+                                inactive = true;
                               });
                             },
                             child: const Text('Decide'),
@@ -116,7 +114,7 @@ class _PhaseFourState extends State<PhaseFour> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionFive(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 5);
                                     }
                                 ),
                               );
@@ -143,7 +141,7 @@ class _PhaseFourState extends State<PhaseFour> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTen(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions, point: 10);
                                     }
                                 ),
                               );
@@ -170,7 +168,7 @@ class _PhaseFourState extends State<PhaseFour> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTwenty(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions, point: 20);
                                     }
                                 ),
                               );
@@ -197,7 +195,7 @@ class _PhaseFourState extends State<PhaseFour> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionThirty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions,point: 30);
                                     }
                                 ),
                               );
@@ -224,7 +222,7 @@ class _PhaseFourState extends State<PhaseFour> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionFourty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions, point: 40);
                                     }
                                 ),
                               );

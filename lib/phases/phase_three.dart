@@ -1,11 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:quiz_bank/quiz_bank.dart';
-import '../questions/question_five.dart';
-import '../questions/question_ten.dart';
-import '../questions/question_thirty.dart';
-import '../questions/question_twenty.dart';
+import '../components/question_point.dart';
+import '../models/questions.dart';
 
 class PhaseThree extends StatefulWidget {
   const PhaseThree({
@@ -112,7 +109,7 @@ class _PhaseThreeState extends State<PhaseThree> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionFive(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 5);
                                     }
                                 ),
                               );
@@ -139,7 +136,7 @@ class _PhaseThreeState extends State<PhaseThree> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTen(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions,point: 10);
                                     }
                                 ),
                               );
@@ -166,7 +163,7 @@ class _PhaseThreeState extends State<PhaseThree> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTwenty(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions,point: 20);
                                     }
                                 ),
                               );
@@ -193,7 +190,7 @@ class _PhaseThreeState extends State<PhaseThree> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionThirty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions,point: 30);
                                     }
                                 ),
                               );

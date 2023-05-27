@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "519321099158",
+    "project_id": "myapp-30771",
+    "storage_bucket": "myapp-30771.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519321099158:android:1cfaaa63433b39ceae1bb7",
+        "android_client_info": {
+          "package_name": "com.mete.luckyornot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519321099158-bfcn4p8ls3tgemkks447a3c8lfjjnthd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mete.luckyornot",
+            "certificate_hash": "d68d991369e042c3c2e4a05783a422c63a9daaef"
+          }
+        },
+        {
+          "client_id": "519321099158-384v060j60jp0jutdn44s8o3e8vhqa8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0uq7Q7k3pW5DJIJkH7vwrIVh_3KisOP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519321099158-384v060j60jp0jutdn44s8o3e8vhqa8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,17 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:quiz_bank/quiz_bank.dart';
-import '../questions/question_five.dart';
-import '../questions/question_eighty.dart';
-import '../questions/question_fifty.dart';
-import '../questions/question_forty.dart';
-import '../questions/question_ninety.dart';
-import '../questions/question_seventy.dart';
-import '../questions/question_sixty.dart';
-import '../questions/question_ten.dart';
-import '../questions/question_thirty.dart';
-import '../questions/question_twenty.dart';
+import '../components/question_point.dart';
+import '../models/questions.dart';
 
 class PhaseNine extends StatefulWidget {
   const PhaseNine({
@@ -121,7 +112,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionFive(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 5);
                                     }
                                 ),
                               );
@@ -148,7 +139,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTen(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions,point:10);
                                     }
                                 ),
                               );
@@ -175,7 +166,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTwenty(questions: widget.questions);
+                                      return  QuestionPoint(questions: widget.questions,point: 20);
                                     }
                                 ),
                               );
@@ -202,7 +193,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionThirty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions,point: 30);
                                     }
                                 ),
                               );
@@ -229,7 +220,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionFourty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions,point: 40);
                                     }
                                 ),
                               );
@@ -256,7 +247,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionFifty(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions,point: 50);
                                     }
                                 ),
                               );
@@ -283,7 +274,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionSixty(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 60);
                                     }
                                 ),
                               );
@@ -310,7 +301,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionSeventy(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 70);
                                     }
                                 ),
                               );
@@ -337,7 +328,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionEighty(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 80);
                                     }
                                 ),
                               );
@@ -364,7 +355,7 @@ class _PhaseNineState extends State<PhaseNine> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionNinety(questions:widget.questions);
+                                      return  QuestionPoint(questions:widget.questions,point: 90);
                                     }
                                 ),
                               );

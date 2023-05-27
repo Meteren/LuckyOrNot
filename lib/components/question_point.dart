@@ -1,21 +1,19 @@
 
 import 'package:flutter/material.dart';
-import 'package:quiz_bank/quiz_bank.dart';
 
+import '../models/questions.dart';
 
-
-class QuestionSeventy extends StatefulWidget {
-  const QuestionSeventy({
-    super.key, required this.questions,
+class QuestionPoint extends StatefulWidget {
+  const QuestionPoint({
+    super.key, required this.questions, required this.point,
   });
-
+  final int point;
   final QuizBrain questions;
-
   @override
-  State<QuestionSeventy> createState() => _QuestionSeventyState();
+  State<QuestionPoint> createState() => _QuestionPointState();
 }
 
-class _QuestionSeventyState extends State<QuestionSeventy> {
+class _QuestionPointState extends State<QuestionPoint> {
   late int active;
   late int pointTaken;
 
@@ -27,7 +25,6 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
     pointTaken = 0;
     widget.questions.RandomQuestion(widget.questions);
   }
-
   @override
   Widget build(BuildContext context) {
     bool ctrl = false;
@@ -46,14 +43,13 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.green,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(400),
             ),
           ),
-          elevation: 3.5,
-          backgroundColor: Colors.green,
-          automaticallyImplyLeading: false,
           title: const Center(child: Text('Question')),
         ),
         body: Center(
@@ -91,16 +87,16 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                               active++;
                             });
                             if(widget.questions.getCorrectAnswer(widget.questions) == true) {
-                              pointTaken +=70;
+                              pointTaken +=widget.point;
                               showDialog<String>(
                                 barrierDismissible: false,
                                 context: context,
                                 builder: (BuildContext context) =>
                                     AlertDialog(
                                       title: const Text('Congrats!!!'),
-                                      content: const Text(
+                                      content: Text(
                                           'Your answer is correct.\n'
-                                              'You got 70 points.'),
+                                              'You got ${widget.point} points.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -152,16 +148,16 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                               active++;
                             });
                             if(widget.questions.getCorrectAnswer(widget.questions) == false) {
-                              pointTaken +=70;
+                              pointTaken +=widget.point;
                               showDialog<String>(
                                 barrierDismissible: false,
                                 context: context,
                                 builder: (BuildContext context) =>
                                     AlertDialog(
                                       title: const Text('Congrats!!!'),
-                                      content: const Text(
+                                      content: Text(
                                           'Your answer is correct.\n'
-                                              'You got 70 points.'),
+                                              'You got ${widget.point} points.'),
                                       actions: <Widget>[
                                         TextButton(
                                           onPressed: () {
@@ -215,7 +211,7 @@ class _QuestionSeventyState extends State<QuestionSeventy> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green, // Background color
                           ),
-                          child: const Text('End Question.'),
+                          child: const Text('End Question'),
                         ),
                       ),
                     ],

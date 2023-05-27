@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:quiz_bank/quiz_bank.dart';
-import '../questions/question_five.dart';
-import '../questions/question_ten.dart';
+import '../components/question_point.dart';
+import '../models/questions.dart';
 
 class PhaseOne extends StatefulWidget {
   const PhaseOne({
@@ -18,7 +17,7 @@ class PhaseOne extends StatefulWidget {
 
 class _PhaseOneState extends State<PhaseOne> {
   late int random;
-  late bool deactive;
+  late bool inactive;
   late bool finish;
 
   int? pointTaken;
@@ -29,7 +28,7 @@ class _PhaseOneState extends State<PhaseOne> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    deactive = false;
+    inactive = false;
     random = -1;
     active = 0;
     finish = false;
@@ -82,10 +81,10 @@ class _PhaseOneState extends State<PhaseOne> {
                           top: 70,
                           left: 90,
                           child: ElevatedButton(
-                            onPressed: deactive ? null : () {
+                            onPressed: inactive ? null : () {
                               setState( () {
                                 random = Random().nextInt(20);
-                                deactive = true;
+                                inactive = true;
                               });
                             },
                             child: const Text('Decide'),
@@ -107,7 +106,7 @@ class _PhaseOneState extends State<PhaseOne> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return QuestionFive(questions:widget.questions);
+                                      return QuestionPoint(questions:widget.questions,point:5);
                                     }
                                 ),
                               );
@@ -131,7 +130,7 @@ class _PhaseOneState extends State<PhaseOne> {
                               pointTaken = await Navigator.of(context).push<int>(
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return  QuestionTen(questions: widget.questions);
+                                      return QuestionPoint(questions: widget.questions, point:10);
                                     }
                                 ),
                               );
