@@ -32,6 +32,30 @@
   <title>Lucky or Not</title>
   <link rel="manifest" href="manifest.json">
 
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+  apiKey: "AIzaSyASTYePIwLBpF97AcTTK4lWxw8u16sJURM",
+  authDomain: "myapp-30771.firebaseapp.com",
+  projectId: "myapp-30771",
+  storageBucket: "myapp-30771.appspot.com",
+  messagingSenderId: "519321099158",
+  appId: "1:519321099158:web:629147fdf88d1227ae1bb7",
+  measurementId: "G-3FBCJ1ZMM7"
+};
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
   <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;

@@ -109,6 +109,11 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
   void signUserUp() async {
+    final user = FirebaseAuth.instance.currentUser;
+    user == null ? showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Center(child: CircularProgressIndicator())) : null;
     try {
        await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
@@ -121,11 +126,18 @@ class _RegisterPageState extends State<RegisterPage> {
        }));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('The password provided is too weak.')));
       } else if (e.code == 'email-already-in-use') {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('The account already exists for that email.')));
+      }
+      else{
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+            content: Text('An error has ocurred\n${e.toString()}')));
       }
     }
   }
@@ -134,7 +146,6 @@ class _RegisterPageState extends State<RegisterPage> {
       'email': text.trim(),
       'highscore': 0
     });
-
   }
   @override
   Widget build(BuildContext context) {

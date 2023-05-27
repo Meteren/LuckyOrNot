@@ -196,7 +196,6 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> with Si
       ),
     );
   }
-
   Widget buildMenuItem(
       BuildContext context,
       {required String text,

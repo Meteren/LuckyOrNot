@@ -62,11 +62,15 @@ class _QuestionListState extends State<QuestionList> {
                       children:  [
                         SlidableAction(
                           onPressed: (context) async{
-                            await utils.deleteQuestion(userQuestionList[index].id).then((value) => {
-                              showAlert("Delete alert",
-                              "Question ${userQuestionList[index].id} deleted")
-                            });
-                            getData();
+                            try {
+                              await utils.deleteQuestion(userQuestionList[index].id).then((value) => {
+                                showAlert("Success!!",
+                                "Question ${userQuestionList[index].id} deleted")
+                              });
+                              getData();
+                            } catch (e) {
+                              showAlert('Oops!', 'Something went wrong\n${e.toString()}');
+                            }
                           },
                           backgroundColor: Color(0xFFFE4A49),
                           foregroundColor: Colors.white,
@@ -92,12 +96,17 @@ class _QuestionListState extends State<QuestionList> {
                       children: [
                         SlidableAction(
                           onPressed: (context) async{
-                             await FileUtils.saveToFile(userQuestionList[index].question);
+                             try {
+                               await FileUtils.saveToFile('${userQuestionList[index].question}: ${userQuestionList[index].answer}');
+                               showAlert('Success!!', 'Saved as favorite');
+                             } catch (e) {
+                               showAlert('Oops!', 'Something went wrong');
+                             }
                           },
                           backgroundColor: Colors.pinkAccent,
                           foregroundColor: Colors.white,
-                          icon: Icons.add_to_home_screen,
-                          label: 'Store',
+                          icon: Icons.favorite,
+                          label: 'Favorite',
                         ),
                         SlidableAction(
                           onPressed: (context) async{
@@ -107,7 +116,8 @@ class _QuestionListState extends State<QuestionList> {
                               });
                             });
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(fileContents)));
+                                content: Text(fileContents),
+                            duration: Duration(seconds: 2),));
                           },
                           backgroundColor: Colors.amber,
                           foregroundColor: Colors.white,

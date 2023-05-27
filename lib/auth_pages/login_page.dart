@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../components/forgot_password_button.dart';
 import '../components/google_sign_in_button.dart';
 import '../components/register_button.dart';
 import '../components/text_field.dart';
@@ -35,24 +36,29 @@ class _LoginPageState extends State<LoginPage> {
 
   void signUserInWithEmail() async {
     try {
+      final user = FirebaseAuth.instance.currentUser;
+      user == null ? showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => Center(child: CircularProgressIndicator())) : null;
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
-       Navigator.of(context).pushReplacement(MaterialPageRoute(
+       await Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
           builder: (context) => FirebaseAuth.instance.currentUser!.emailVerified ? buildPages(context)
               : VerifyEmailPage()
-      ));
+      ),(Route<dynamic> rout) => false);
     } on FirebaseAuthException catch (e) {
         if (e.code == 'wrong-password') {
+          Navigator.of(context).pop();
           wrongPassword();
         } else if (e.code == 'email-already-in-use') {
+          Navigator.of(context).pop();
           emailInUse();
         } else if (e.code == 'user-not-found') {
+          Navigator.of(context).pop();
           wrongEmail();
       }
-        else{
-         return;
-        }
     }
   }
   Future<void> SignInWithGoogle() async {
@@ -202,16 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text('Forgot Password?', style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.black,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.brown,
-                          decorationThickness: 1.5,
-                          fontStyle: FontStyle.italic
-                      ),
-                      ),
+                      ForgotPasswordButton(),
                     ],
                   ),
                 ),
@@ -252,5 +249,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
 
 

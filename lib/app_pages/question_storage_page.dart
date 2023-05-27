@@ -17,12 +17,8 @@ class QuestionStoragePage extends StatefulWidget {
 }
 
 class _QuestionStoragePageState extends State<QuestionStoragePage> {
-  TextEditingController questionIdController = TextEditingController();
-  TextEditingController questionTextController = TextEditingController();
-  TextEditingController questionAnswerController = TextEditingController();
 
   String? answer;
-
   Timer? timer;
 
   bool check = false;
@@ -32,6 +28,10 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
   late Future<Database> database;
 
   List<UserQuestion> userQuestionsList = [];
+
+  String? userQuestion;
+
+  String? questionId;
 
   void initState() {
     // TODO: implement initState
@@ -49,22 +49,39 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
         });
   }
 
-
   _onPressedAdd() async {
-    final question = UserQuestion(
-      id: int.parse(questionIdController.text),
-      question: questionTextController.text,
-      answer: questionAnswerController.text,
-    );
-    utils.insertQuestion(question);
-    userQuestionsList = await utils.questions();
-    getData();
+    try {
+      final question = UserQuestion(
+        id: int.parse(questionId!.trim()),
+        question: userQuestion!,
+        answer: answer!,
+      );
+      utils.insertQuestion(question);
+      userQuestionsList = await utils.questions();
+      getData();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Question added.'),
+      duration: Duration(seconds: 2)));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Something went wrong.\n${e.toString()}'),
+          duration: Duration(seconds: 2)));
+    }
   }
 
   _deleteQuestionTable() {
-    utils.deleteTable();
-    userQuestionsList = [];
-    getData();
+    try {
+      utils.deleteTable();
+      userQuestionsList = [];
+      getData();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Question table deleted.'),
+          duration: Duration(seconds: 2)));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Something went wrong.\n${e.toString()}'),
+          duration: Duration(seconds: 2)));
+    }
   }
 
   void getData() async {
@@ -75,8 +92,6 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
     });
     print(userQuestionsList);
   }
-
-
   void didChangeAppLifecycleState(AppLifecycleState state) {
     getData();
   }
@@ -92,118 +107,163 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
           ),
           title: Text("Question Storage"),
         backgroundColor: Colors.grey,),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                Container(
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white
+                      ),
+                    height: 260,
+                    width: 400,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                border: UnderlineInputBorder(),
+                                labelText: 'Enter Question'
+                            ),
+                            validator: (val){
+                              if(val == null || val.trim().isNotEmpty != true){
+                                return 'Enter Question';
+                              }
+                              return null;
+                            },
+                            onChanged: (val){
+                              setState(() {
+                                userQuestion = val;
+                              });
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: UnderlineInputBorder(),
+                              labelText: 'Enter your question id',
+                            ),
+                            validator: (value){
+                              if(value == null || value.trim().isNotEmpty != true){
+                                return 'You need to enter your question id.';
+                              }
+                              if(int.tryParse(value.trim()) == null){
+                                return 'Id must be a number.';
+                              }
+                              return null;
+                            },
+                            onChanged: (val){
+                              setState(() {
+                                questionId = val;
+                              });
+                            },
+                          ),
+                        ),
+                        DropdownButtonFormField(
+                          items:[
+                            DropdownMenuItem(
+                              child: Text('True',
+                                style: TextStyle(color: Colors.green),),
+                              value: 'True',),
+                            DropdownMenuItem(
+                              child: Text('False',
+                                style: TextStyle(color: Colors.red),),
+                              value: 'False',)
+                          ],
+                          value: answer,
+                          onChanged: (value){
+                            setState(() {
+                              answer = value;
+                            });
+                          },
+                          validator: (value){
+                            if(value == null){
+                              return 'Please enter your answer';
+                            }
+                            return null;
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30,),
+                  Container(
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white
                     ),
-                  height: 240,
-                  width: 400,
-                  child: Column(
+                    height: 130,
+                    width: 400,
+                  child:Column(
                     children: [
-                      MyTextFormField(
-                        questionTextController: questionTextController,
-                        labelText: 'Enter Question',
-                      ),
-                      MyTextFormField(
-                          questionTextController: questionIdController,
-                          labelText: 'Enter ID Question' ,
-                      ),
-                      DropdownButtonFormField(
-                        items:[
-                          DropdownMenuItem(
-                            child: Text('True',
-                              style: TextStyle(color: Colors.green),),
-                            value: 'True',),
-                          DropdownMenuItem(
-                            child: Text('False',
-                              style: TextStyle(color: Colors.red),),
-                            value: 'False',)
-                        ],
-                        value: answer,
-                        onChanged: (value){
-                          setState(() {
-                            answer = value;
-                          });
-                        },
-                        validator: (value){
-                          if(value == null){
-                            return 'Please enter your answer';
-                          }
-                          return null;
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 30,),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white
-                  ),
-                  height: 130,
-                  width: 400,
-                child:Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                          onPressed: _onPressedAdd, child: Text("Insert Question")),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                          onPressed: _deleteQuestionTable,
-                          child: const Text("Delete Question Table")),
-                    ),
-                  ]
-                  ,)
-                  ,),
-                SizedBox(
-                  height: 50,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text('Double tap to go to',
-                      style: TextStyle(fontStyle: FontStyle.italic),),
-                      AnimatedPadding(
-                          padding: check ? EdgeInsets.only(right: 50) : EdgeInsets.only(left:0),
-                          child: Icon(Icons.arrow_forward),
-                          duration: Duration(seconds: 1)),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: GestureDetector(
-                          onDoubleTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context)=>QuestionList()));
-                          },
-                          child: Container(
-                            height: 30,
-                            decoration: BoxDecoration(color: Colors.grey,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(10), ),
-                            child: Center(child: Text('Questions List',
-                            style: TextStyle(color: Colors.white),))
-                          ),
-                        )
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+                            onPressed: (){
+                              final formState = _formKey.currentState;
+                              if(formState == true) return null;
+                              if(formState?.validate() == true){
+                                formState?.save();
+                                print(userQuestionsList);
+                              }
+                              _onPressedAdd();
+                            }, child: Text("Insert Question")),
                       ),
-
-                    ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+                            onPressed: _deleteQuestionTable,
+                            child: const Text("Delete Question Table")),
+                      ),
+                    ]
+                    ,)
+                    ,),
+                  SizedBox(
+                    height: 50,),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Double tap to go to',
+                        style: TextStyle(fontStyle: FontStyle.italic),),
+                        AnimatedPadding(
+                            padding: check ? EdgeInsets.only(right: 50) : EdgeInsets.only(left:0),
+                            child: Icon(Icons.arrow_forward),
+                            duration: Duration(seconds: 1)),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                            onDoubleTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context)=>QuestionList()));
+                            },
+                            child: Container(
+                              height: 30,
+                              decoration: BoxDecoration(color: Colors.grey,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(10), ),
+                              child: Center(child: Text('Questions List',
+                              style: TextStyle(color: Colors.white),))
+                            ),
+                          )
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -211,29 +271,5 @@ class _QuestionStoragePageState extends State<QuestionStoragePage> {
   }
 }
 
-class MyTextFormField extends StatelessWidget {
-  const MyTextFormField({
-    super.key,
-    required this.questionTextController,
-    required this.labelText
-  });
 
-  final String labelText;
-
-  final TextEditingController questionTextController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        controller: questionTextController,
-        decoration: InputDecoration(
-            border: UnderlineInputBorder(),
-            labelText: labelText
-        ),
-      ),
-    );
-  }
-}
 

@@ -31,10 +31,12 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
       });
       final question = Question.fromMap(added_question);
       await addQuestion(question);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Question saved')));
       Navigator.of(context).pop();
     }catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('There is no question corresponding to that id.')));
+          content: Text('Something went wrong.Try to check id if its correct or not or fill the blanks.')));
     }finally{
       setState(() {
         isSaving = false;
@@ -77,8 +79,11 @@ class _AddQuestionPageState extends State<AddQuestionPage> {
                       labelText: 'Enter your question id',
                     ),
                     validator: (value){
-                      if(value?.trim().isNotEmpty != true){
-                        return 'You need to enter your question';
+                      if(value == null || value.trim().isNotEmpty != true){
+                        return 'You need to enter your question id.';
+                      }
+                      if(int.tryParse(value) == null){
+                        return 'Id must be a number.';
                       }
                       return null;
                     },
