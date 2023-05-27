@@ -121,10 +121,11 @@ class _RegisterPageState extends State<RegisterPage> {
        final uid = FirebaseAuth.instance.currentUser!.uid;
        sendUserInfo(emailController.text.trim(),uid);
 
-       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
-         return VerifyEmailPage();
-       }));
-    } on FirebaseAuthException catch (e) {
+       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+           builder: (context) => VerifyEmailPage()
+       ),(Route<dynamic> rout) => false);
+
+    }on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

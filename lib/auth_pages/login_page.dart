@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
-       await Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
           builder: (context) => FirebaseAuth.instance.currentUser!.emailVerified ? buildPages(context)
               : VerifyEmailPage()
       ),(Route<dynamic> rout) => false);
@@ -59,6 +59,11 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.of(context).pop();
           wrongEmail();
       }
+        else{
+          Navigator.of(context).pop();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text('Something went wrong:${e.toString()}')));
+        }
     }
   }
   Future<void> SignInWithGoogle() async {
@@ -161,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.symmetric(horizontal: 30),
                   width: 150,
                   height: 150,
-                  child: Image.asset('assets/images/question_mark.png'),
+                  child: Image.asset('assets/images/question_mark.jpg'),
                 ),
                 Text('Welcome back!',
                     style: TextStyle(fontSize: 18,

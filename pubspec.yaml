@@ -93,7 +93,7 @@ flutter:
 
   assets:
    - assets/lottiefiles/
-   - assets/images/question_mark.png
+   - assets/images/question_mark.jpg
    - assets/images/google_logo.png
    - assets/images/upside_down_question_mark.png
    - assets/images/question_mark_trio.png
