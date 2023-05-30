@@ -35,7 +35,7 @@ class _UpdateQuestionPageState extends State<UpdateQuestionPage> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Question updated.'),
         duration: Duration(seconds: 2),));
-      //Navigator.pop(context);
+      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Something went wrong.')));
     }
