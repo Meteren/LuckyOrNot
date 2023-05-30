@@ -38,8 +38,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Enter your email to reset your password.',
-                textScaleFactor: 1.5,),
+                Center(
+                  child: Text('Enter your email to reset your password.',
+                  textScaleFactor: 1.5,),
+                ),
                 SizedBox(height: 30,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

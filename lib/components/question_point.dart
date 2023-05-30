@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-
-import '../models/questions.dart';
+import '../repositories/questions_repo.dart';
 
 class QuestionPoint extends StatefulWidget {
   const QuestionPoint({

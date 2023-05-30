@@ -1,4 +1,3 @@
-import 'package:Lucky_or_Not/app_pages/main_page.dart';
 import 'package:Lucky_or_Not/app_pages/verify_email_page.dart';
 import 'package:Lucky_or_Not/components/build_pages_function.dart';
 import 'package:Lucky_or_Not/components/sign_in_button.dart';
@@ -74,13 +73,13 @@ class _LoginPageState extends State<LoginPage> {
       FirebaseAuth.instance.currentUser!.uid);
 
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => MainPage()
+          builder: (context) => buildPages(context)
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('An error has occured while signing in.\n'
+          content: Text('An error has occurred while signing in.\n'
               '${e.toString()}'),
-      duration: Duration(seconds: 60),));
+      duration: Duration(seconds: 2),));
     }
   }
   void wrongPassword() {
@@ -106,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Wrong E-mail!'),
+          title: Text('Wrong Email!'),
           actions: <Widget>[
             TextButton(
               child: Text('Ok'),
@@ -124,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('E-mail is already in use!'),
+          title: Text('Email is already in use!'),
           actions: <Widget>[
             TextButton(
               child: Text('Ok'),

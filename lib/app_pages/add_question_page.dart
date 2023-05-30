@@ -1,5 +1,6 @@
 import 'package:Lucky_or_Not/models/questions.dart';
 import 'package:flutter/material.dart';
+import '../repositories/questions_repo.dart';
 import '../utils/db_utils.dart';
 
 DbUtils utils = DbUtils();

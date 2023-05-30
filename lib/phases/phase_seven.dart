@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../components/question_point.dart';
-import '../models/questions.dart';
+import '../repositories/questions_repo.dart';
 
 class PhaseSeven extends StatefulWidget {
   const PhaseSeven({

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../components/question_point.dart';
-import '../models/questions.dart';
+import '../repositories/questions_repo.dart';
 
 
 class PhaseTwo extends StatefulWidget {
@@ -18,7 +18,7 @@ class PhaseTwo extends StatefulWidget {
 
 class _PhaseTwoState extends State<PhaseTwo> {
   late int random;
-  late bool deactive;
+  late bool inactive;
 
   int? pointTaken;
 
@@ -30,7 +30,7 @@ class _PhaseTwoState extends State<PhaseTwo> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    deactive = false;
+    inactive = false;
     random = -1;
     active = 0;
     finish = false;
@@ -85,10 +85,10 @@ class _PhaseTwoState extends State<PhaseTwo> {
                               style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.yellow, // Background color
                           ),
-                            onPressed: deactive ? null : () {
+                            onPressed: inactive ? null : () {
                               setState( () {
                                 random = Random().nextInt(20);
-                                deactive = true;
+                                inactive = true;
                               });
                               //print(random);
                             },

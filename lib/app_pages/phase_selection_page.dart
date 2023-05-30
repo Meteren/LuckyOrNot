@@ -3,7 +3,6 @@ import 'package:Lucky_or_Not/components/build_pages_function.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../models/questions.dart';
 import '../phases/phase_eight.dart';
 import '../phases/phase_five.dart';
 import '../phases/phase_four.dart';
@@ -14,6 +13,7 @@ import '../phases/phase_six.dart';
 import '../phases/phase_ten.dart';
 import '../phases/phase_three.dart';
 import '../phases/phase_two.dart';
+import '../repositories/questions_repo.dart';
 import 'how_to_play.dart';
 
 class PhaseSelectionPage extends StatefulWidget {

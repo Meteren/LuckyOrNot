@@ -138,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
       else{
         Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar( SnackBar(
-            content: Text('An error has ocurred\n${e.toString()}')));
+            content: Text('An error has occurred\n${e.toString()}')));
       }
     }
   }

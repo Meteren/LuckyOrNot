@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:Lucky_or_Not/components/question_point.dart';
 import 'package:flutter/material.dart';
 
-import '../models/questions.dart';
+import '../repositories/questions_repo.dart';
+
 
 
 class PhaseFour extends StatefulWidget {
