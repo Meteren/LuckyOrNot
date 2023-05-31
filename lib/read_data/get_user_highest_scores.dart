@@ -6,7 +6,6 @@ class GetHighestScores extends StatelessWidget {
 
   GetHighestScores({Key? key, required this.docID}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     final user = FirebaseFirestore.instance.collection('users');

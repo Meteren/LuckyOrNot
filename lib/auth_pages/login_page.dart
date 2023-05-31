@@ -20,11 +20,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  List<String> docIds = [];
+
   String errorMessage = '';
 
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
+
+  Future getDocIDs() async{
+    await FirebaseFirestore.instance.collection('users')
+        .get()
+        .then((snapshot)
+    => snapshot.docs.forEach((element) {
+      docIds.add(element.reference.id);
+    }));
+  }
 
   Future sendUserInfo(String text,String uid) async {
     await FirebaseFirestore.instance.collection('users').doc(uid).set({
@@ -66,12 +77,17 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
   Future<void> SignInWithGoogle() async {
+    getDocIDs();
     try {
       await signInWithGoogle();
 
-      sendUserInfo(FirebaseAuth.instance.currentUser!.email!,
-      FirebaseAuth.instance.currentUser!.uid);
-
+      final uid = await FirebaseAuth.instance.currentUser!.uid;
+      for(int i = 0; i < docIds.length; i++){
+        if(docIds[i] == uid){
+          sendUserInfo(FirebaseAuth.instance.currentUser!.email!,
+              uid);
+        }
+      }
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => buildPages(context)
       ));

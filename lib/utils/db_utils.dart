@@ -91,7 +91,6 @@ class DbUtils {
         whereArgs: [id],
         limit: 1
     );
-
     return map;
   }
 }
