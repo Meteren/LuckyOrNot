@@ -14,8 +14,6 @@ class UserQuestion {
     };
   }
 
-  // Implement toString to make it easier to see information about
-  // each dog when using the print statement.
   @override
   String toString() {
     return 'Question{id: $id, question: $question, answer: $answer}';
