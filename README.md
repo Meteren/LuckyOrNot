@@ -1,17 +1,4 @@
-# school_project
+# About Lucky Or Not
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# MyProject" 
+This application is written in Dart language using Flutter. The main purpose of the application is according to users' luck rate, giving them the equivalent random questions to
+answer and make them earn points as possible as much while saving their high scores between other users using Firebase to motivate them, like they are in a contest.
